@@ -1,42 +1,25 @@
-let displayValue = 0;
+let displayValue = "";
 
 const operate = function(x, y, z) {
   switch (z) {
     case "divide":
       displayValue = divide(x, y);
-      // screen.innerHTML = displayValue;
       updateScreen();
       break;
     case "multiply":
       displayValue = multiply(x, y);
-      // screen.innerHTML = displayValue;
       updateScreen();
       break;
     case "add":
       displayValue = add(x, y);
-      // screen.innerHTML = displayValue;
       updateScreen();
       break;
     case "subtract":
       displayValue = subtract(x, y);
-      // screen.innerHTML = displayValue;
       updateScreen();
       break;
   }
 };
-
-// const operate = function(x, y, z) {
-//   if (z == "divide") {
-//     return divide(x,y);
-//   } else if (z == "multiply") {
-//     return  multiply(x, y);
-//   } else if (z == "add") {
-//     return add(x,y);
-//   } else if (z == "subtract") {
-//     return  subtract(x, y);
-//   }
-// };
-
 function add(x, y) {
   return x + y;
 };
@@ -56,17 +39,46 @@ function updateScreen(){
   screen.innerHTML = displayValue;
 };
 
-//buttons
-const numButton = document.getAttributeNames('num');
-
-// numButton.forEach(element => element.addEventListener("keypress", function (event) {
-//   displayValue = this.value;
-//   screen.innerHTML = displayValue;
-// }));
-
-for (const element in numButton) {
-  element.addEventListener("click", function (event) {
-    displayValue = event.target.innerHTML;
+//number Buttons
+const numButton = document.querySelectorAll('.num');
+numButton.forEach(function(element) {
+  element.addEventListener('click', numbR())
+});
+function numbR() {
+  return function (event) {
+    displayValue += event.target.id[1];
     updateScreen();
-  })
-}
+  };
+};
+
+//keyboard number input
+document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+  
+  if (!isNaN(keyName)) {
+    displayValue += event.key;
+    updateScreen();
+  }
+});
+
+//operator Buttons
+const operators = document.querySelectorAll('.operator');
+operators.forEach(function(element) {
+  element.addEventListener("click", oper8r())
+});
+
+function oper8r() {
+  return function (event) {
+    console.log(event.target.id);
+  }
+};
+
+//AllClear
+const ac = document.getElementById('allClr');
+ac.addEventListener('click', allClear());
+function allClear() {
+  return function () {
+    displayValue = "";
+    screen.innerHTML = 0;
+  };
+};
