@@ -1,6 +1,38 @@
+html{
+  background-color: rgba(51, 51, 51, 0.918);
+}
+
 .num {
   /* border: 1px solid black; */
   flex-basis: 100%;
+}
+
+button{
+  font-family: inherit;
+  font-size: 35px;
+}
+
+body {
+  color: rgb(31, 30, 30);
+  font-family: 'Orbitron', sans-serif;
+}
+
+p{
+  height: 70px;
+  font-size: 50px;
+  text-align: right;
+  background-color: rgb(117, 126, 123);
+}
+
+h1{
+  text-align: center;
+}
+
+.calcContain{
+  margin: 0 auto;
+  border: 1px solid brown;
+  background-color: rgb(41, 62, 63);
+  width: 400px;
 }
 
 .clear{
@@ -9,12 +41,21 @@
 
 .buttonContainer{
   display: flex;
+  justify-content: center;
 }
 
 #rowClear{
   display:flex;
 }
 
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.operator:focus {
+  background-color: lightpink;
+}
 
 
 .numButContain {
@@ -28,6 +69,8 @@
 }
 
 button {
+  color:rgb(197, 207, 204);
+  background-color: rgb(80, 79, 79);
   padding: 20px 25px;
 }
 
